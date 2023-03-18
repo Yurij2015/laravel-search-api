@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Hotel;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
