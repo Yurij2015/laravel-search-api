@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('hotels', ApiHotelController::class);
+Route::get('hotel-search', [ApiHotelController::class, 'search'])->name('hotel-search');

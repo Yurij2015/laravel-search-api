@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\HotelResource;
 use App\Models\Hotel;
-use Illuminate\Http\Request;
+use App\Services\HotelsService;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class HotelController extends Controller
@@ -20,49 +21,20 @@ class HotelController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Search resources.
      */
-    public function create()
+    public function search(HotelsService $hotelsService): string|Collection
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        if (count(request()->all())) {
+            return $hotelsService->hotelsSearch();
+        }
+        return 'no result';
     }
 
     /**
      * Display the specified resource.
      */
     public function show(Hotel $hotel)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Hotel $hotel)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Hotel $hotel)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Hotel $hotel)
     {
         //
     }
