@@ -23,12 +23,12 @@ class HotelController extends Controller
     /**
      * Search resources.
      */
-    public function search(HotelsService $hotelsService): string|Collection
+    public function search(HotelsService $hotelsService): array|Collection
     {
         if (count(request()->all())) {
             return $hotelsService->hotelsSearch();
         }
-        return 'no result';
+        return Hotel::all();
     }
 
     /**

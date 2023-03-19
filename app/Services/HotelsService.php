@@ -16,7 +16,7 @@ class HotelsService
             if ($key === 'name') {
                 $result->where($key, 'like', '%' . $value . '%');
             }
-            if (!in_array($key, ['price_from', 'price_to'], true)) {
+            if (!in_array($key, ['price_from', 'price_to', 'name'], true)) {
                 $result->where($key, '=', $value);
             }
             if ($key === 'price_from' && !$price_to) {
